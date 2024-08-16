@@ -680,6 +680,8 @@ const images = [
   },
 ];
 
+app.use(express.json());
+
 app.get("/api/images", (req, res) => {
   res.json({ images });
 });
