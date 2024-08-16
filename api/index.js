@@ -682,7 +682,13 @@ const images = [
 ];
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"], // Sesuaikan dengan metode yang diperlukan
+    credentials: true, // Jika Anda mengirim cookie atau header otentikasi
+  })
+);
 
 app.get("/api/images", (req, res) => {
   res.json({ images });
