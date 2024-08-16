@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const cors = require("cors");
 
 const images = [
   {
@@ -681,6 +682,11 @@ const images = [
 ];
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:5173/",
+  })
+);
 
 app.get("/api/images", (req, res) => {
   res.json({ images });
