@@ -1,23 +1,16 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node"
-    }
+    { "src": "index.js", "use": "@vercel/node" },
+    { "src": "api/**/*.js", "use": "@vercel/node" }
   ],
   "routes": [
-    {
-      "src": "/api/images",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/api/images/rating/(.*)",
-      "dest": "/index.js"
-    },
+    { "src": "/api/images", "dest": "/api/images.js" },
+    { "src": "/api/images/rating/(.*)", "dest": "/api/images/rating/(.*)" },
     {
       "src": "/api/images/featured",
-      "dest": "/index.js"
-    }
+      "dest": "/api/images/featured"
+    },
+    { "src": "/(.*)", "dest": "/index.js" }
   ]
 }
